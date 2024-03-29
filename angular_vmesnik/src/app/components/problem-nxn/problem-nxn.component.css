@@ -1,0 +1,33 @@
+
+.problem_box {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(8, 43px);
+  grid-template-rows: repeat(8, 43px);
+  width: 370px;
+  height: 370px;
+  border: 2px solid black;
+  gap: 1px;
+}
+
+.small_square {
+  margin-bottom: 1px;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-width: 2px;
+  border-style: solid;
+  justify-content: center;
+  align-items: center;
+  border-color: #0D1C2C;
+  background: #4695eb;
+}
+
+.square_dot {
+  display: flex;
+  border-radius: 50%;
+  background: #8d0081;
+  width: 10px;
+  height: 10px;
+}
