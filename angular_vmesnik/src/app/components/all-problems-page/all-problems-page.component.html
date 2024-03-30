@@ -1,48 +1,18 @@
 <body>
-<div class="headingAndContent-container">
-  <h1 class="heading">All problems. Choose one</h1>
-  <div class="buttons">
-
+  <div class="headingAndContent-container">
+    <h1 class="heading">All problems. Choose one</h1>
+    <div class="buttons">
+      <button class="createBtn" routerLink="/create-problem">create</button>
+      <button class="resetBtn">reset</button>
+    </div>
   </div>
   <div class="all_problems_box">
     <div *ngFor="let i of allProblemsList; let index = index">
-      <app-problem-nxn [matrix]="i" [solutions]="allSolutionsList[index]"></app-problem-nxn>
+      <app-problem-nxn
+        [showGetSolutionBtn]="true"
+        [matrix]="i"
+        [solutions]="allSolutionsList[index]"
+      ></app-problem-nxn>
     </div>
   </div>
-
-</div>
 </body>
-
-
-<style>
-
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-  }
-
-  .headingAndContent-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .heading {
-    font-family: Consolas, sans-serif;
-    margin: 50px;
-  }
-
-  .all_problems_box {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    overflow-y: auto;
-    gap: 10px;
-  }
-
-
-</style>

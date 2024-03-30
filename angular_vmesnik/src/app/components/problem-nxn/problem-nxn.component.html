@@ -1,66 +1,37 @@
 <div class="problemBoxAndButton-container">
-  <div class="problem_box"
-       [style.grid-template-columns]="setRepeatFunInGridTemplate()"
-       [style.grid-template-rows]="setRepeatFunInGridTemplate()"
-       [ngStyle]="{'width' : matrix.length <5 ? '200px' : (matrix.length < 7 ? '300px' : '370px'),
-      'height' : matrix.length <5 ? '200px' : (matrix.length < 7 ? '300px' : '370px')}">
+  <div
+    class="problem_box"
+    [style.grid-template-columns]="setRepeatFunInGridTemplate()"
+    [style.grid-template-rows]="setRepeatFunInGridTemplate()"
+    [ngStyle]="{
+      width:
+        matrix.length < 5 ? '200px' : matrix.length < 7 ? '300px' : '370px',
+      height:
+        matrix.length < 5 ? '200px' : matrix.length < 7 ? '300px' : '370px'
+    }"
+  >
     <div *ngFor="let i of matrix; let indI = index">
-      <div *ngFor="let j of i; let indJ= index">
-        <div [ngStyle]="{'background-color': matrix[indJ][indI] === 1 ? '#e9ff76' : 'gray'}"
-             class="small_square" (click)="changeColor(indI, indJ)">
-          <div *ngIf="isValueInSolutionsArray([indJ, indI]) && getSolutionsBtn" class="square_dot"></div>
+      <div *ngFor="let j of i; let indJ = index">
+        <div
+          [ngStyle]="{
+            'background-color': matrix[indJ][indI] === 1 ? '#e9ff76' : 'gray'
+          }"
+          class="small_square"
+          (click)="changeColor(indI, indJ)"
+        >
+          <div
+            *ngIf="isValueInSolutionsArray([indJ, indI]) && getSolutionsBtn"
+            class="square_dot"
+          ></div>
         </div>
       </div>
     </div>
   </div>
-  <button (click)="getSolutionBtnIsClicked()" id="getSolutionsBtn">
+  <button
+    *ngIf="showGetSolutionBtn"
+    (click)="getSolutionBtnIsClicked()"
+    id="getSolutionsBtn"
+  >
     Get solution
   </button>
 </div>
-
-
-<style>
-  .problemBoxAndButton-container {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-  }
-
-  button {
-    cursor: pointer;
-    border: none;
-    color: #fff;
-    background-image: linear-gradient(30deg, #00ff2a, #4ce3f7);
-    border-radius: 20px;
-    background-size: 100% auto;
-    font-family: Consolas, sans-serif;
-    font-size: 17px;
-    padding: 0.6em 1.5em;
-    margin-bottom: 50px;
-    width: 65%;
-  }
-
-  button:hover {
-    background-position: right center;
-    background-size: 200% auto;
-    -webkit-animation: pulse 2s infinite;
-    animation: pulse512 1.5s infinite;
-  }
-
-  @keyframes pulse512 {
-    0% {
-      box-shadow: 0 0 0 0 #05bada66;
-    }
-
-    70% {
-      box-shadow: 0 0 0 10px rgb(218 103 68 / 0%);
-    }
-
-    100% {
-      box-shadow: 0 0 0 0 rgb(218 103 68 / 0%);
-    }
-  }
-</style>
-

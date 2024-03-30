@@ -1,0 +1,37 @@
+.headingAndContent-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.all_problems_box {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  gap: 10px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  gap: 40px;
+}
+
+.createBtn,
+.resetBtn {
+  border-radius: 15px;
+  text-transform: uppercase;
+  width: 30%;
+}
+
+.createBtn {
+  background-image: linear-gradient(30deg, #0077ff, #4ce3f7);
+}
+
+.resetBtn {
+  background-image: linear-gradient(30deg, #d0a30b, #ffdd00);
+}

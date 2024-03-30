@@ -1,60 +1,52 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-all-problems-page',
   templateUrl: './all-problems-page.component.html',
-  styleUrls: ['./all-problems-page.component.css']
+  styleUrls: ['./all-problems-page.component.css', '../../app.component.css'],
 })
 export class AllProblemsPageComponent implements OnInit {
+  problemMatrix: number[][] = [[]];
+  problemMatrix2: number[][] = [[]];
+  problemSolution: number[][] = [[]];
+  problemSolution2: number[][] = [[]];
+  allSolutionsList: number[][][] = [[[]]];
+  allProblemsList: number[][][] = [[[]]];
 
-  problemMatrix: number[][] = [[]]
-  problemSolution: number[][] = [[]]
-  problemSolution2: number[][] = [[]]
-  allSolutionsList: number[][][] = [[[]]]
-  allProblemsList: number[][][] = [[[]]]
-
-  constructor() {
-
-  }
-
+  constructor() {}
 
   ngOnInit() {
-
-    //
-    // this.matrix = [
-    //   [1, 0, 0],
-    //   [1, 0, 0],
-    //   [1, 0, 0]
-    // ];
-    //
-    // this.matrix = [
-    //   [1, 0, 0, 0],
-    //   [1, 0, 0, 0],
-    //   [1, 0, 0, 0],
-    //   [1, 0, 0, 0]
-    // ];
-
     this.problemSolution = [
       [1, 2],
       [1, 0],
       [1, 2],
       [2, 1],
-      [0, 0]
-    ]
+      [0, 0],
+    ];
     this.problemSolution2 = [
       [1, 2],
       [1, 0],
       [2, 2],
       [2, 0],
-      [0, 1]
-    ]
+      [0, 1],
+    ];
 
     this.problemMatrix = [
       [1, 0, 0, 0, 0],
       [1, 0, 0, 0, 0],
       [1, 0, 0, 0, 0],
       [1, 0, 0, 0, 0],
-      [1, 0, 0, 0, 1]
+      [1, 0, 0, 0, 1],
+    ];
+    this.problemMatrix2 = [
+      [1, 0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 1, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 0, 0],
+      [1, 0, 0, 0, 0, 0, 0, 0],
     ];
 
     this.allProblemsList = [
@@ -63,12 +55,14 @@ export class AllProblemsPageComponent implements OnInit {
       this.problemMatrix,
       this.problemMatrix,
       this.problemMatrix,
+      this.problemMatrix2,
+      this.problemMatrix,
+      this.problemMatrix2,
       this.problemMatrix,
       this.problemMatrix,
-      this.problemMatrix,
-      this.problemMatrix,
-      this.problemMatrix
-    ]
+    ];
+
+    this.allProblemsList.sort((a, b) => a.length - b.length);
 
     this.allSolutionsList = [
       this.problemSolution,
@@ -81,52 +75,6 @@ export class AllProblemsPageComponent implements OnInit {
       this.problemSolution,
       this.problemSolution,
       this.problemSolution,
-    ]
-
-    // this.matrix = [
-    //   [1, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0]
-    // ];
-
-    // this.matrix = [
-    //   [1, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 1, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0]
-    // ];
-    //
-    // this.matrix = [
-    //   [1, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 1, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0]
-    // ];
-    //
-    // this.problemMatrix = [
-    //   [1, 0, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 1, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0, 0],
-    //   [1, 0, 0, 0, 0, 0, 0, 0]
-    // ];
+    ];
   }
-
-  getSolutionForProblem(problem: number) {
-
-  }
-
-
 }
