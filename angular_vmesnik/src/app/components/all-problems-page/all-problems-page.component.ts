@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class AllProblemsPageComponent implements OnInit {
   problemMatrix: number[][] = [[]];
   problemMatrix2: number[][] = [[]];
+  problemMatrix3: number[][] = [[]];
   problemSolution: number[][] = [[]];
   problemSolution2: number[][] = [[]];
   allSolutionsList: number[][][] = [[[]]];
@@ -38,6 +39,13 @@ export class AllProblemsPageComponent implements OnInit {
       [1, 0, 0, 0, 0],
       [1, 0, 0, 0, 1],
     ];
+
+    this.problemMatrix3 = [
+      [1, 0, 1],
+      [0, 1, 0],
+      [1, 0, 1]
+    ];
+
     this.problemMatrix2 = [
       [1, 0, 0, 0, 0, 0, 0, 0],
       [1, 0, 0, 0, 0, 0, 0, 0],
@@ -50,7 +58,7 @@ export class AllProblemsPageComponent implements OnInit {
     ];
 
     this.allProblemsList = [
-      this.problemMatrix,
+      this.problemMatrix3,
       this.problemMatrix,
       this.problemMatrix,
       this.problemMatrix,
