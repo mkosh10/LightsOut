@@ -31,14 +31,108 @@ export class AllProblemsPageComponent implements OnInit {
 
   constructor() {
   }
-
   ngOnInit() {
 
     //Due to the absence of an API integration,
     // the matrices presented here are hardcoded.
     // The solutions provided for each matrix are derived from a solver algorithm,
     // ensuring accurate and solvable configurations for the Lights Out game.
+    this.setProblemMatrices()
+    this.setProblemSolutions()
+  }
+  public setProblemMatrices() {
+    this.problemMatrix1 = [
+      [1, 0, 1],
+      [0, 1, 0],
+      [1, 0, 1]
+    ];
+    this.problemMatrix2 = [
+      [0, 1, 0],
+      [1, 1, 1],
+      [0, 1, 1]
+    ];
+    this.problemMatrix3_1 = [
+      [1, 1, 0],
+      [0, 1, 1],
+      [1, 0, 0]
+    ]
 
+    this.problemMatrix3_2 = [
+      [0, 0, 1],
+      [1, 1, 0],
+      [0, 1, 1]
+    ]
+
+    this.problemMatrix3 = [
+      [1, 0, 0, 1],
+      [0, 1, 1, 0],
+      [0, 1, 1, 0],
+      [1, 0, 0, 1]
+    ];
+    this.problemMatrix4 = [
+      [0, 1, 1, 0],
+      [1, 0, 0, 1],
+      [1, 0, 0, 1],
+      [0, 1, 1, 0]
+    ];
+
+    this.problemMatrix5 = [
+      [1, 0, 0, 0, 1],
+      [0, 1, 0, 1, 0],
+      [0, 0, 1, 0, 0],
+      [0, 1, 0, 1, 0],
+      [1, 0, 0, 0, 1]
+    ];
+
+    this.problemMatrix6 = [
+      [0, 1, 0, 1, 0, 1],
+      [1, 0, 0, 0, 0, 1],
+      [0, 0, 1, 1, 0, 0],
+      [1, 0, 1, 1, 0, 1],
+      [0, 0, 0, 0, 0, 1],
+      [1, 1, 0, 1, 0, 0]
+    ];
+
+
+    this.problemMatrix7 = [
+      [1, 1, 0, 1, 0, 0, 0],
+      [0, 0, 1, 0, 0, 0, 1],
+      [1, 0, 0, 0, 0, 1, 0],
+      [0, 0, 1, 0, 1, 0, 0],
+      [0, 0, 0, 1, 0, 0, 0],
+      [0, 0, 1, 0, 1, 0, 0],
+      [0, 1, 0, 0, 0, 1, 1]
+    ];
+
+    this.problemMatrix8 = [
+      [1, 0, 0, 1, 0, 1, 0, 0],
+      [0, 1, 0, 1, 1, 0, 0, 1],
+      [0, 0, 1, 0, 0, 1, 1, 0],
+      [1, 1, 0, 1, 0, 0, 1, 0],
+      [0, 1, 0, 0, 1, 1, 0, 1],
+      [1, 0, 1, 0, 1, 0, 1, 0],
+      [0, 0, 1, 1, 0, 1, 0, 1],
+      [0, 1, 0, 0, 1, 0, 1, 1]
+    ];
+
+
+    this.allProblemsList = [
+      this.problemMatrix1,
+      this.problemMatrix2,
+      this.problemMatrix3_1,
+      this.problemMatrix3_2,
+      this.problemMatrix3,
+      this.problemMatrix4,
+      this.problemMatrix5,
+      this.problemMatrix6,
+      this.problemMatrix7,
+      this.problemMatrix8,
+    ];
+
+
+  }
+
+  setProblemSolutions() {
     this.problemSolution1 = [
       [0, 0],
       [0, 1],
@@ -196,93 +290,7 @@ export class AllProblemsPageComponent implements OnInit {
       [7, 2],
       [7, 7],
     ];
-    this.problemMatrix1 = [
-      [1, 0, 1],
-      [0, 1, 0],
-      [1, 0, 1]
-    ];
-    this.problemMatrix2 = [
-      [0, 1, 0],
-      [1, 1, 1],
-      [0, 1, 1]
-    ];
-    this.problemMatrix3_1 = [
-      [1, 1, 0],
-      [0, 1, 1],
-      [1, 0, 0]
-    ]
 
-    this.problemMatrix3_2 = [
-      [0, 0, 1],
-      [1, 1, 0],
-      [0, 1, 1]
-    ]
-
-    this.problemMatrix3 = [
-      [1, 0, 0, 1],
-      [0, 1, 1, 0],
-      [0, 1, 1, 0],
-      [1, 0, 0, 1]
-    ];
-    this.problemMatrix4 = [
-      [0, 1, 1, 0],
-      [1, 0, 0, 1],
-      [1, 0, 0, 1],
-      [0, 1, 1, 0]
-    ];
-
-    this.problemMatrix5 = [
-      [1, 0, 0, 0, 1],
-      [0, 1, 0, 1, 0],
-      [0, 0, 1, 0, 0],
-      [0, 1, 0, 1, 0],
-      [1, 0, 0, 0, 1]
-    ];
-
-    this.problemMatrix6 = [
-      [0, 1, 0, 1, 0, 1],
-      [1, 0, 0, 0, 0, 1],
-      [0, 0, 1, 1, 0, 0],
-      [1, 0, 1, 1, 0, 1],
-      [0, 0, 0, 0, 0, 1],
-      [1, 1, 0, 1, 0, 0]
-    ];
-
-
-    this.problemMatrix7 = [
-      [1, 1, 0, 1, 0, 0, 0],
-      [0, 0, 1, 0, 0, 0, 1],
-      [1, 0, 0, 0, 0, 1, 0],
-      [0, 0, 1, 0, 1, 0, 0],
-      [0, 0, 0, 1, 0, 0, 0],
-      [0, 0, 1, 0, 1, 0, 0],
-      [0, 1, 0, 0, 0, 1, 1]
-    ];
-
-    this.problemMatrix8 = [
-      [1, 0, 0, 1, 0, 1, 0, 0],
-      [0, 1, 0, 1, 1, 0, 0, 1],
-      [0, 0, 1, 0, 0, 1, 1, 0],
-      [1, 1, 0, 1, 0, 0, 1, 0],
-      [0, 1, 0, 0, 1, 1, 0, 1],
-      [1, 0, 1, 0, 1, 0, 1, 0],
-      [0, 0, 1, 1, 0, 1, 0, 1],
-      [0, 1, 0, 0, 1, 0, 1, 1]
-    ];
-
-
-    this.allProblemsList = [
-      this.problemMatrix1,
-      this.problemMatrix2,
-      this.problemMatrix3_1,
-      this.problemMatrix3_2,
-      this.problemMatrix3,
-      this.problemMatrix4,
-      this.problemMatrix5,
-      this.problemMatrix6,
-      this.problemMatrix7,
-      this.problemMatrix8,
-    ];
 
     // this.allProblemsList.sort((a, b) => a.length - b.length);
 
@@ -299,5 +307,10 @@ export class AllProblemsPageComponent implements OnInit {
       this.problemSolution8,
 
     ];
+
   }
+
+
 }
+
+

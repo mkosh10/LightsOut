@@ -11,10 +11,16 @@ export class ProblemNxnComponent {
   @Input() showGetSolutionBtn: Boolean = true;
   @Input() createNewProblem: Boolean = false; // Indicates whether this component is used in the "create new problem page", if true only one square should be colored
   getSolutionsBtn: Boolean = false;
+  copyMatrix : number[][] = [[]]
+  clonedMatrix: number[][] =[[]]
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.clonedMatrix = JSON.parse(JSON.stringify(this.matrix));
+  }
+
+
 
   isValueInSolutionsArray(element: number[]): Boolean {
     for (let i = 0; i < this.solutions.length; i++) {
@@ -30,8 +36,8 @@ export class ProblemNxnComponent {
 
   // If this button is clicked, display dots in the html file
   getSolutionBtnIsClicked() {
-    this.getSolutionsBtn = true;
-    //   TODO: Reset the problem
+    this.getSolutionsBtn = true
+    this.matrix = this.clonedMatrix
   }
 
   setRepeatFunInGridTemplate() {
