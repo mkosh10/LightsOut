@@ -1,15 +1,25 @@
 package com.lightsoutDemoM;
 
 import java.util.*;
+import java.util.*;
 
 public class Solver {
+    // To test the solver, insert your nxn problem into the b table, which represents an nxn list.
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Solver gaussianElimination = new Solver();
+        Solver ge = new Solver();
 
         System.out.println("\nEnter the size of the NxN lights out game: ");
-        int N = sc.nextInt();
+        // int N = sc.nextInt();
+
+
+        int[] b = {0, 0, 1,
+                1, 1, 0,
+                0, 1, 1};
+
+        int N = (int) Math.sqrt(b.length);
+        System.out.println(N);
 
         // List containing object matrices representing each lights out rule
         ArrayList<MatrixNxN> matrixObjectsList = new ArrayList<>();
@@ -30,8 +40,7 @@ public class Solver {
 
         // 'b' vector representing the problem defined by the user for an NxN lights out
         // game
-        int[] b = {1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0};
-        gaussianElimination.solve(A, b);
+        ge.solve(A, b);
     }
 
     public static int[][] setGausMatrix(ArrayList<MatrixNxN> matrixList, int N) {
@@ -55,7 +64,7 @@ public class Solver {
     public void solve(int[][] A, int[] B) {
         int N = B.length;
         for (int k = 0; k < N; k++) {
-            // find pivot row
+            /** find pivot row **/
             int max = k;
             for (int i = k + 1; i < N; i++)
                 if (Math.abs(A[i][k]) > Math.abs(A[max][k]))
@@ -81,6 +90,19 @@ public class Solver {
         }
 
         // printRowEchelonForm(A, B);
+        for (int i = 0; i < N; i++) {
+            boolean rowIsOk = false;
+            for (int j = 0; j < N; j++) {
+                if (A[i][j] == 1) {
+                    rowIsOk = true;
+                    break;
+                }
+            }
+            if (!rowIsOk && B[i] != 0) {
+                System.out.println("Solution not found");
+                return;
+            }
+        }
 
         // back substitution
         int[] solution = new int[N];
@@ -97,6 +119,17 @@ public class Solver {
         printSolution(solution);
     }
 
+    // function to print in row echleon form
+    public void printRowEchelonForm(int[][] A, int[] B) {
+        int N = B.length;
+        System.out.println("\nRow Echelon form : ");
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < N; j++)
+                System.out.printf("%d", A[i][j]);
+            System.out.printf("| %d\n", B[i]);
+        }
+        System.out.println();
+    }
 
     // function to print solution and coordinates
     public void printSolution(int[] sol) {
@@ -118,7 +151,7 @@ public class Solver {
         System.out.println("\nOr here are the solution coordinates:");
         for (int i = 0; i < sol.length; i++) {
             if (sol[i] == 1) {
-                System.out.printf("( %d, %d )\n", coordI, coordJ);
+                System.out.printf("[%d, %d],\n", coordI, coordJ);
             }
 
             coordJ++;
@@ -127,18 +160,6 @@ public class Solver {
                 coordI++;
             }
         }
-    }
-
-    // function to print in row echleon form
-    public void printRowEchelonForm(int[][] A, int[] B) {
-        int N = B.length;
-        System.out.println("\nRow Echelon form : ");
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++)
-                System.out.printf("%d", A[i][j]);
-            System.out.printf("| %d\n", B[i]);
-        }
-        System.out.println();
     }
 
 }
